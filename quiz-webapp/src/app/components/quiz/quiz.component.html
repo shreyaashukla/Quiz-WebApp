@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Only show quiz once a question is loaded -->
+<div class="quiz-card" *ngIf="currentQuestion">
+  <h2>Question {{ currentIndex + 1 }} of {{ questions.length }}</h2>
+  <p class="question-text">{{ currentQuestion.question }}</p>
+
+  <div class="options">
+    <button
+      *ngFor="let option of currentQuestion.options"
+      (click)="selectAnswer(option)"
+      [class.selected]="selectedAnswers[currentIndex] === option"
+    >
+      {{ option }}
+    </button>
+  </div>
+
+  <div class="quiz-footer">
+    <button class="icon-btn left" (click)="prev()" [disabled]="currentIndex === 0">
+      <span class="material-icons">arrow_back</span>
+    </button>
+
+    <button
+      class="submit-btn"
+      *ngIf="currentIndex === questions.length - 1"
+      (click)="submitQuiz()"
+    >
+      Submit
+    </button>
+
+    <button class="icon-btn right" (click)="next()" [disabled]="currentIndex === questions.length - 1">
+      <span class="material-icons">arrow_forward</span>
+    </button>
+  </div>
+</div>
+
+<!-- Show this while data is loading -->
+<div *ngIf="!currentQuestion">
+  <p>Loading questions...</p>
+</div>

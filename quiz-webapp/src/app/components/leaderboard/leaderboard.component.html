@@ -1,0 +1,16 @@
+<div class="card">
+<h2>Leaderboard</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+  </tr>
+  <tr *ngFor="let entry of leaderboard">
+    <td>{{ entry.name }}</td>
+    <td>{{ entry.score }}</td>
+  </tr>
+</table>
+
+<button routerLink="/">Back to Home</button>
+</div>

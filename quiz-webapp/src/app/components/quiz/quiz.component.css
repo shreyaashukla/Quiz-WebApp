@@ -1,0 +1,163 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.quiz-card {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Rest of your styles for quiz-card, options, footer etc. */
+
+.quiz-card h2 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.question-text {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.options button {
+  background-color: white;
+  border: 2px solid #3498db;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: black;
+}
+
+.options button:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.options button.selected {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: white;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-btn, .submit-btn {
+  background-color:#3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover, .submit-btn:hover {
+  background-color: #138d75;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #16a085;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: #138d75;
+}
+
+.arrow.left {
+  left: 15px;
+}
+
+.arrow.right {
+  right: 15px;
+}
+
+.submit-wrapper {
+  margin-top: 20px;
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0 5px;
+}
+
+/* Icon button styling */
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background-color:#3498db;
+}
+
+.material-icons {
+  font-size: 28px;
+}
+
+/* Submit button centered between arrows */
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
