@@ -1,3 +1,4 @@
+require('dotenv').config(); // Load variables from .env
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -5,10 +6,19 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-const path = "mongodb://localhost:27017";
-// Connect to MongoDB
-// mongoose.connect('mongodb+srv://shreya152412:shreya2412@cluster0.t51nm8g.mongodb.net/quizdb?retryWrites=true&w=majority&appName=Cluster0', { tlsAllowInvalidCertificates: true});
-mongoose.connect(path);
+// const path = "mongodb://localhost:27017";
+// // Connect to MongoDB
+// // mongoose.connect('mongodb+srv://shreya152412:shreya2412@cluster0.t51nm8g.mongodb.net/quizdb?retryWrites=true&w=majority&appName=Cluster0', { tlsAllowInvalidCertificates: true});
+// mongoose.connect(path);
+const mongoURI = process.env.MONGO_URI; // Atlas connection string from env
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("✅ MongoDB connected"))
+.catch(err => console.error("❌ MongoDB connection error:", err));
+
 
 const ScoreSchema = new mongoose.Schema({
   name: String,
@@ -196,4 +206,8 @@ app.get('/api/questions', (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+// app.listen(3000, () => console.log('Server started on port 3000'));
+const PORT = process.env.PORT || 3000; // Use Render-assigned port or 3000 locally
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
